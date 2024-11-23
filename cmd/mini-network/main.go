@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/pocketbase/pocketbase"
+)
 
 func main() {
-	fmt.Println("Starting...")
+	app := pocketbase.New()
+	if err := app.Start(); err != nil {
+		log.Fatalf("failed to start pocketbase app: %v", err)
+	}
 }
